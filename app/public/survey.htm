@@ -28,8 +28,6 @@
     <hr>
     <h4>Name</h4>
     <input type="text" id="name" class="form-control" required>
-    <h4>Link to a picture!</h4>
-    <input type="text" id="photo" class="form-control" required>
     <hr>
     <h3><strong>Question 1</strong></h3>
     <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
@@ -112,7 +110,8 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
     <h3><strong>Question 9</strong></h3>
-    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.
+    </h4>
     <select class="chosen-select" id="q9">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -157,7 +156,6 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -203,12 +201,11 @@
         });
         return isValid;
       }
-      // If all required fields are filled
+
       if (validateForm()) {
-        // Create an object for the user"s data
+
         var userData = {
           name: $("#name").val(),
-          photo: $("#photo").val(),
           scores: [
             $("#q1").val(),
             $("#q2").val(),
@@ -224,7 +221,6 @@
         };
         $.post("/api/friends", userData, function (data) {
           $("#match-name").text(data.name);
-          $("#match-img").attr("src", data.photo);
           $("#results-modal").modal("toggle");
         });
       } else {
