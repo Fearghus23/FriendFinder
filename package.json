@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Fearghus23/FriendFinder#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "node": "^12.12.0"
-  }
+  },
+  "devDependencies": {}
 }

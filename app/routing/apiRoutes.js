@@ -6,8 +6,6 @@ module.exports = function (app) {
   app.get("/api/friends", function (req, res) {
     res.json(friends);
   });
-
-  // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
   app.post("/api/friends", function (req, res) {
     var bestMatch = {
@@ -45,8 +43,6 @@ module.exports = function (app) {
     }
 
     friends.push(userData);
-
-    // Return a JSON with the user's bestMatch. This will be used by the HTML in the next page
     res.json(bestMatch);
   });
 };
